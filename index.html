@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="shortcut icon" href="./favicon.png" />
+
+    <!--
+    Do not use @8 in production, use a complete version like x.x.x, see website for latest version:
+    https://www.algolia.com/doc/guides/building-search-ui/installation/js/#load-the-styles
+  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@8/themes/satellite-min.css"
+    />
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="./src/app.css" />
+
+    <title>instantsearch-app</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="header-title">
+        <a href="/">instantsearch-app</a>
+        
+      </h1>
+      <p class="header-subtitle">
+        using
+        <a
+          href="https://github.com/algolia/instantsearch/tree/master/packages/instantsearch.js"
+        >
+          InstantSearch.js
+        </a>
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="search-panel">
+
+        <div class="search-panel__filters">
+          <div class="case_studies">
+          <p>Partners</p>
+          <div id="refinement-list-partners"></div>
+
+            <p>Competitors takeout</p>
+            <div id="refinement-list-competitors"></div>
+
+            <p>Use-Case</p>
+            <div id="refinement-list-use-case"></div>
+            
+            <p>Country</p>
+            <div id="refinement-list-country"></div>
+      
+            </div>
+        </div>
+
+        
+        <div class="search-panel__results">
+          <div id="searchbox"></div>
+          <div id="stats"></div>
+          <div class="tab">
+            <button class="tablinks" onclick="change_index(event, 'blog_articles','case_studies')" id="case_studies_button" >Case studies</button>
+            <button class="tablinks" onclick="change_index(event, 'case_studies','blog_articles')">Blog articles</button>
+          </div>
+          <div id="hits_case_studies" class="case_studies"></div>
+          <div id="hits_blog_articles" class="blog_articles" style="display: none;"></div>
+
+
+          <div id="pagination"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script>
+
+          // JavaScript to toggle the active class
+         
+      
+
+    function hide(classname){
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName(classname);
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    }
+
+    function show(classname){
+       tabcontent=document.getElementsByClassName(classname);
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "block";
+    }    }
+      
+    function change_index(evt,toshow,tohide) {
+        hide(toshow);
+        show(tohide);
+      }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.10.5/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.73.4"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
